@@ -1,0 +1,23 @@
+https://blog.logrocket.com/handling-bootstrap-integration-next-js/
+
+npm install bootstrap
+pages/_app.js:
+    import "bootstrap/dist/css/bootstrap.min.css";
+    import { useEffect } from "react";
+        useEffect(() => {
+            require("bootstrap/dist/js/bootstrap.bundle.min.js");
+        }, []);
+
+npm install swr
+
+
+Bitcoin Network
+- Blocks
+- Difficulty
+- Total coins
+- Reward per block
+- Mempool
+- EstimateFees btc/vB or btc/tx????
+- Next Halving
+
+estimatefees: { nextBlock: 13, '30min': 12, '60min': 9, '1day': 6 }
