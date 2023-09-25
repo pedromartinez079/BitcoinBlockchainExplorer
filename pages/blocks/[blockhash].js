@@ -80,8 +80,6 @@ export async function getServerSideProps(context) {
     
     const quote = await getRandomQuote();
 
-    // console.log(blockId);
-
     return{
         props: { blockHash: blockHash, quote: quote }, 
     };

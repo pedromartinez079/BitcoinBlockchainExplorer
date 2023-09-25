@@ -2,7 +2,6 @@ import Block from "./block";
 
 export default function BlockList(props) {
     const blockList = props.blocks;
-    // console.log(blockList);
 
     return(
         <ul>

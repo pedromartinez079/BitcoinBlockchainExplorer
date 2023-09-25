@@ -22,14 +22,9 @@ export default function ExplorerHome(props) {
 export async function getStaticProps() {
   const networkStatus = await getNetworkStatus();
   const quote = await getRandomQuote();
-  // console.log(quote);
 
   return{
     props: { networkStatus: networkStatus, quote: quote },
     revalidate: 600, 
   };
 }
-
-{/* <div className='m-1'> |Market-chart </div>      
-      <div className='m-1'> |Last-blocks </div>      
-      <div className='m-1'> |Last-transactions </div> */}

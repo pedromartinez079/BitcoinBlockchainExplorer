@@ -8,7 +8,7 @@ export default function NavBar(props) {
         event.preventDefault();
 
         const slug = slugRef.current.value;
-        // console.log(slug);
+        
         props.onSearch(slug);
     }
 

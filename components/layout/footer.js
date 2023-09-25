@@ -1,7 +1,7 @@
 import { getRandomQuote } from "../../lib/blockchain-util";
 
 export default function Footer(props) {
-    const bgColorDiv = '#ffcc00'  //style={{ 'backgroundColor': orange800 }}
+    const bgColorDiv = '#ffcc00'  //style={{ 'backgroundColor': bgColorDiv }}
     const quote = props.quote;
 
     if (!quote) {

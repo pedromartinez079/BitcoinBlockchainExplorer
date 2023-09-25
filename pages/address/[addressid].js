@@ -23,7 +23,6 @@ export default function AddressPage(props) {
         }        
     }, [data]);
 
-    //console.log(address);
     let pageHead = (
         <Head>
             <title>Address {props.addressId}</title>
@@ -64,7 +63,7 @@ export default function AddressPage(props) {
         </Fragment>
         );
     
-    // console.log(address); !address.validateaddress
+    // console.log(address);
 
     return(
         <Fragment>

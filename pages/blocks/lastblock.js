@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
-import { getBlockCount, getLastBlockHash, getRandomQuote} from "../../lib/blockchain-util";
+import { getLastBlockHash, getRandomQuote} from "../../lib/blockchain-util";
 
 import BlockList from "../../components/blocks/blocklist";
 

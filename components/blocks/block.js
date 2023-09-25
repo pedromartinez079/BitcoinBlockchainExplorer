@@ -16,7 +16,6 @@ export default function Block(props) {
     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
                         hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
     const blockTime = date.toLocaleString("en-US", options);
-    // console.log(blockTime);
     
     return(
         <div className="card m-1 shadow">

@@ -43,8 +43,6 @@ export default function txPage(props) {
             dataTx.vout.map((out) => { out.spent = false })
             setTx(dataTx);          
         }
-        // if (dataTx === null) { console.log('Tx is null') }
-        // if (dataTx === undefined) { console.log('Tx is undefined') }
     }, [dataTx]);
 
     useEffect(() => {

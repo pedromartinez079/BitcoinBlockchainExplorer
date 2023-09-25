@@ -1,13 +1,9 @@
-import Link from 'next/link';
 import TxList from '../txs/txlist';
 
-import { nFormatter } from "../../lib/formatNumbers";
 import classes from './wallet.module.css';
 
 export default function Wallet(props) {
     const balance = ((props.wallet.txHistory.balanceSat === 0) && '0') || ((props.wallet.txHistory.balanceSat !== 0) && props.wallet.txHistory.balanceSat);
-    // const received = ((props.wallet.total_received === 0) && '0') || ((props.wallet.total_received !== 0) && props.wallet.total_received);
-    // const sent = ((props.wallet.total_sent === 0) && '0') || ((props.wallet.total_sent !== 0) && props.wallet.total_sent);
     const txs = ((props.wallet.txHistory.txCount === 0) && '0') || ((props.wallet.txHistory.txCount !== 0) && props.wallet.txHistory.txCount);
 
     return(
@@ -17,8 +13,6 @@ export default function Wallet(props) {
                 {props.wallet.encoding && <h6 className="card-subtitle mb-2 text-body-secondary">Encoding: {props.wallet.encoding}</h6>}
                 {props.wallet.validateaddress.scriptPubKey && <p className="card-text m-0">ScriptPubKey: {props.wallet.validateaddress.scriptPubKey}</p>}
                 {balance && <p className="card-text m-0">Balance(sats): {balance}</p>}
-                {/*received && <p className="card-text m-0">Received(sats): {received}</p>}
-                {sent && <p className="card-text m-0">Sent(sats): {sent}</p>*/}
                 {txs && <p className="card-text m-0">Txs: {txs}</p>}
                 {props.wallet.txHistory.txids &&
                     <div className='container m-2'>

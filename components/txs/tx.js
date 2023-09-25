@@ -31,7 +31,6 @@ export default function Tx(props) {
                       </div>
                     </div>
                 }
-                {/*fee && <p className="card-text m-0"> Fee: {fee}</p>*/}
                 {props.tx.time && <p className="card-text m-0">Time UTC: {txTime}</p>}
                 {props.tx.blockhash &&  <p className="card-text m-0">
                                           Block Hash: <Link href={'/blocks/' + props.tx.blockhash}>{props.tx.blockhash}</Link>
@@ -96,93 +95,3 @@ export default function Tx(props) {
   blocktime: 1694871601
 }
 */}
-
-
-
-{/* bitcoinexplorer.org
-{
-  txid: '98613136121c6203d156265da61274adaa3925b1b34df6a37e1d54229cbaefcd',
-  hash: 'cfa96db7eab5d705ee5a1b2b99022b93f220087e0a2f44e01869babb66118e24',
-  version: 2,
-  size: 192,
-  vsize: 111,
-  weight: 441,
-  locktime: 0,
-  vin: [
-    {
-      txid: '6bfb986287b2537f4a1db30f530eb0be31e049d75134a6c871b85145734c9543',
-      vout: 1,
-      scriptSig: [Object],
-      txinwitness: [Array],
-      sequence: 4294967295,
-      value: 0.00228
-    }
-  ],
-  vout: [ { value: 0.0022, n: 0, scriptPubKey: [Object] } ],
-  hex: '0200000000010143954c734551b871c8a63451d749e031beb00e530fb31d4a7f53b2876298fb6b0100000000ffffffff01605b03000000000017a9140073d229fe465897337a1b2ffc8af31451e4aed78702473044022034c16e16005845e0d9c2840d35fa20639a9690a71761d0f25967a4c79b18e8c002206f81efc503605138225c2d905087458499c03859a086dc204e9d651e734257f1012102cd46a9a6d2e9d80419d49e68c7d093f2bb69a8e4bbdd82dd82ebb269e4b2fb6600000000',
-  blockhash: '000000000000000000042e661b9241089467e35cb3e7c68762178aec064870a8',
-  confirmations: 3,
-  time: 1694617883,
-  blocktime: 1694617883,
-  fee: { amount: 0.00008, unit: 'BTC' }
-}
-*/}
-
-{/* blockchain.com
-{
-    hash: 'eda03117e3259a00c752a0c7cb41019e569a11f9df54d68ded53b31b90117249',
-    ver: 1,
-    vin_sz: 1,
-    vout_sz: 3,
-    size: 317,
-    weight: 1160,
-    fee: 0,
-    relayed_by: '0.0.0.0',
-    lock_time: 0,
-    tx_index: 2584136632202858,
-    double_spend: false,
-    time: 1694464832,
-    block_index: 807230,
-    block_height: 807230,
-    inputs: [
-      {
-        sequence: 4294967295,
-        witness: '01200000000000000000000000000000000000000000000000000000000000000000',
-        script: '033e510c1a2f5669614254432f4d696e656420627920766164696d3030312f2cfabe6d6dfb2db0044fc292649f1fa15ae36767721249e581a05459871e58e4a21eeaa2c31000000000000000107500cd0025a6dd580b57a02558eb180000000000',
-        index: 0,
-        prev_out: [Object]
-      }
-    ],
-    out: [
-      {
-        type: 0,
-        spent: false,
-        value: 647352017,
-        spending_outpoints: [],
-        n: 0,
-        tx_index: 2584136632202858,
-        script: '76a914536ffa992491508dca0354e52f32a3a7a679a53a88ac',
-        addr: '18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX'
-      },
-      {
-        type: 0,
-        spent: false,
-        value: 0,
-        spending_outpoints: [],
-        n: 1,
-        tx_index: 2584136632202858,
-        script: '6a2952534b424c4f434b3ac9b9708c735911ec715cbda1519a5a2b4d8df3aab9d9543846d469280055ef46'
-      },
-      {
-        type: 0,
-        spent: false,
-        value: 0,
-        spending_outpoints: [],
-        n: 2,
-        tx_index: 2584136632202858,
-        script: '6a24aa21a9ed5102a49b457d832dfbcd1adfad6d678b72705652acf94619add07de3ad4e70cc'
-      }
-    ]
-}
-*/}
-  
