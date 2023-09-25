@@ -9,6 +9,16 @@ import Tx from "../../components/txs/tx";
 import { getRandomQuote } from "../../lib/blockchain-util";
 
 export default function txPage(props) {
+    let pageHead = (
+        <Head>
+            <title>Tx {props.txId}</title>
+            <meta
+                name='A Bitcoin transaction'
+                content='Bitcoin transaction tx hex inputs outputs'
+            />
+        </Head>
+    );
+
     const [tx, setTx] = useState({});
     const [txOut, setTxOut] = useState([]);
 
@@ -29,15 +39,6 @@ export default function txPage(props) {
     );
     
     useEffect(() => {
-        if (dataTxOut !== undefined) {
-            setTxOut(dataTxOut);
-            // console.log(dataTxOut[size-1]);
-            if (dataTxOut[size-1] === null) { tx.vout[size-1].spent = true } else { tx.vout[size-1].spent = false }
-            setSize(size + 1);
-        }      
-    }, [dataTxOut]);
-
-    useEffect(() => {
         if (dataTx) {
             dataTx.vout.map((out) => { out.spent = false })
             setTx(dataTx);          
@@ -46,25 +47,28 @@ export default function txPage(props) {
         // if (dataTx === undefined) { console.log('Tx is undefined') }
     }, [dataTx]);
 
-    let pageHead = (
-        <Head>
-            <title>Tx {props.txId}</title>
-            <meta
-                name='A Bitcoin transaction'
-                content='Bitcoin transaction tx hex inputs outputs'
-            />
-        </Head>
-    );
+    useEffect(() => {
+        if (dataTxOut !== undefined) {
+            setTxOut(dataTxOut);
+            // console.log(dataTxOut[size-1]);
+            if (dataTxOut[size-1] === null) {
+                if (tx.vout[size-1]) { tx.vout[size-1].spent = true }
+            } else {
+                if (tx.vout[size-1]) { tx.vout[size-1].spent = false }
+            }
+            setSize(size + 1);
+        }      
+    }, [dataTxOut]);
 
     if (dataTx === null) return(
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Tx not found</span>            
+                <span className="badge text-bg-danger fs-5">Tx not found</span>
             </div>
         </Fragment>
         );
-    if (errorTx || errorTxOut) return(
+    if (errorTx) return(
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-5">
@@ -72,7 +76,7 @@ export default function txPage(props) {
             </div>
         </Fragment>
         );
-    if (!dataTx || dataTx === undefined || !dataTxOut || dataTxOut === undefined) return (
+    if (!dataTx || dataTx === undefined) return (
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-3">
@@ -82,7 +86,27 @@ export default function txPage(props) {
                 </button>
             </div>
         </Fragment>
-        )
+        );                          
+            
+    if (errorTxOut) return(
+        <Fragment>
+            {pageHead}
+            <div className="d-flex justify-content-center m-5">
+                <span className="badge text-bg-danger fs-5">Load failed</span>            
+            </div>
+        </Fragment>
+        );
+    if (!dataTxOut || dataTxOut === undefined) return (
+        <Fragment>
+            {pageHead}
+            <div className="d-flex justify-content-center m-3">
+                <button className="btn btn-warning" type="button" disabled>
+                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span role="status">Loading...</span>
+                </button>
+            </div>
+        </Fragment>
+        );
 
     // console.log(tx);
     

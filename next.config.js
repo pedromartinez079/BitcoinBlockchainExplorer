@@ -4,7 +4,7 @@ module.exports = (phase) => {
     if (phase === PHASE_DEVELOPMENT_SERVER) {
         return {
             env: {
-                GETBLOCK_API_KEY_DEV: 'API',
+                GETBLOCK_API_KEY: 'API_DEV',
                 
             },
         };
@@ -12,7 +12,7 @@ module.exports = (phase) => {
 
     return {
         env: {
-            GETBLOCK_API_KEY_PROD: 'API',
+            GETBLOCK_API_KEY_PROD: 'API_PROD',
             
         },
     };
