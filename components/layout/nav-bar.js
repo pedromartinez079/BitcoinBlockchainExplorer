@@ -40,7 +40,7 @@ export default function NavBar(props) {
                         </li>*/}                    
                     </ul>
                     <form className="d-flex col-8" role="search" onSubmit={submitHandler}>
-                        <input className="form-control me-0" type="search" placeholder="Search Blocks, Txs, Addresses" aria-label="Search" ref={slugRef}/>
+                        <input className="form-control me-0" id="search" type="search" placeholder="Search Blocks, Txs, Addresses" aria-label="Search" ref={slugRef}/>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
