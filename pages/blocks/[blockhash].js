@@ -47,7 +47,7 @@ export default function blockPage(props) {
             </div>
         </Fragment>
         );
-    if (!data) return (
+    if (!data || data === undefined) return (
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-3">

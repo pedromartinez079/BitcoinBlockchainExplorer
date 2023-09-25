@@ -34,6 +34,14 @@ export default function LastBlock(props) {
         </Head>
     );
 
+    if (data === null) return(
+        <Fragment>
+            {pageHead}
+            <div className="d-flex justify-content-center m-5">
+                <span className="badge text-bg-danger fs-5">Block not found</span>            
+            </div>
+        </Fragment>
+        );
     if (error) return(
         <Fragment>
             {pageHead}
@@ -42,7 +50,7 @@ export default function LastBlock(props) {
             </div>
         </Fragment>
         );
-    if (!data) return (
+    if (!data || data === undefined) return (
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-3">

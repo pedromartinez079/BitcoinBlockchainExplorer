@@ -72,7 +72,7 @@ export default function txPage(props) {
             </div>
         </Fragment>
         );
-    if (!dataTx || !dataTxOut) return (
+    if (!dataTx || dataTx === undefined || !dataTxOut || dataTxOut === undefined) return (
         <Fragment>
             {pageHead}
             <div className="d-flex justify-content-center m-3">
