@@ -7,6 +7,9 @@ import useSWR from 'swr';
 import { getLastBlockHash, getRandomQuote} from "../../lib/blockchain-util";
 
 import BlockList from "../../components/blocks/blocklist";
+import Loading from '../../components/ui/loading';
+import LoadFailed from '../../components/ui/loadfailed';
+import NotFound from '../../components/ui/notfound';
 
 export default function LastBlock(props) {
     const [blockList, setBlockList] = useState([]);
@@ -37,28 +40,19 @@ export default function LastBlock(props) {
     if (data === null) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Block not found</span>            
-            </div>
+            <NotFound />
         </Fragment>
         );
     if (error) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span class="badge text-bg-danger fs-5">Load failed</span>            
-            </div>
+            <LoadFailed />
         </Fragment>
         );
     if (!data || data === undefined) return (
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-3">
-                <button className="btn btn-warning" type="button" disabled>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status">Loading...</span>
-                </button>
-            </div>
+            <Loading />
         </Fragment>
         )
 

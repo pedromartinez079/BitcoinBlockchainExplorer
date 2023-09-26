@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
 import Block from '../../components/blocks/block';
+import Loading from '../../components/ui/loading';
+import LoadFailed from '../../components/ui/loadfailed';
+import NotFound from '../../components/ui/notfound';
 import { getRandomQuote } from "../../lib/blockchain-util";
 
 export default function blockPage(props) {
@@ -34,28 +37,19 @@ export default function blockPage(props) {
     if (data === null) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Block not found</span>            
-            </div>
+            <NotFound />
         </Fragment>
         );
     if (error) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Load failed</span>            
-            </div>
+            <LoadFailed />
         </Fragment>
         );
     if (!data || data === undefined) return (
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-3">
-                <button className="btn btn-warning" type="button" disabled>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status">Loading...</span>
-                </button>
-            </div>
+            <Loading />
         </Fragment>
         );
 

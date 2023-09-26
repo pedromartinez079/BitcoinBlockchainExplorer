@@ -6,6 +6,9 @@ import useSWR from 'swr';
 import useSWRInfinite from 'swr/infinite'
 
 import Tx from "../../components/txs/tx";
+import Loading from '../../components/ui/loading';
+import LoadFailed from '../../components/ui/loadfailed';
+import NotFound from '../../components/ui/notfound';
 import { getRandomQuote } from "../../lib/blockchain-util";
 
 export default function txPage(props) {
@@ -61,48 +64,32 @@ export default function txPage(props) {
     if (dataTx === null) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Tx not found</span>
-            </div>
+            <NotFound />
         </Fragment>
         );
     if (errorTx) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Load failed</span>            
-            </div>
+            <LoadFailed />
         </Fragment>
         );
     if (!dataTx || dataTx === undefined) return (
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-3">
-                <button className="btn btn-warning" type="button" disabled>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status">Loading...</span>
-                </button>
-            </div>
+            <Loading />            
         </Fragment>
         );                          
             
     if (errorTxOut) return(
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-5">
-                <span className="badge text-bg-danger fs-5">Load failed</span>            
-            </div>
+            <LoadFailed />
         </Fragment>
         );
     if (!dataTxOut || dataTxOut === undefined) return (
         <Fragment>
             {pageHead}
-            <div className="d-flex justify-content-center m-3">
-                <button className="btn btn-warning" type="button" disabled>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status">Loading...</span>
-                </button>
-            </div>
+            <Loading />
         </Fragment>
         );
 

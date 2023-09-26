@@ -10,8 +10,6 @@ export default function Tx(props) {
                         hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
     const txTime = date.toLocaleString("en-US", options);
 
-    // ToDo: Decode Hex and get sender address
-
     return(
         <div className="card m-1 shadow" >
             <div className="card-body">
