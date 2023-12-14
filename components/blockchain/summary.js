@@ -8,9 +8,7 @@ export default function Summary(props) {
     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
                         hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
     const nextHalvingDate = new Date(props.networkStatus.nexthalving.nextHalvingEstimatedDate);
-    
-    // console.log(props.networkStatus);    
-
+        
     return(
         <div className="container text-center m-3 p-3 border">
             <div className='m-2'><h5 className="card-title">Mainnet Network Status</h5></div>

@@ -21,7 +21,6 @@ export default function AddressPage(props) {
     
     useEffect(() => {
         if (data) {
-            // console.log(data);
             setAddress(data);
         }        
     }, [data]);
@@ -56,9 +55,7 @@ export default function AddressPage(props) {
             <Loading />
         </Fragment>
         );
-    
-    // console.log(address);
-
+        
     return(
         <Fragment>
             {pageHead}

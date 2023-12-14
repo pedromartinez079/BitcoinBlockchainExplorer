@@ -31,7 +31,6 @@ export default function txPage(props) {
         );
     
     const getKey = (pageIndex, previousPageData) => {
-        // console.log(pageIndex);        
         if (pageIndex >= tx.vout.length) { return null; }
         return `/api/txout/${tx.txid}?vout=${tx.vout[pageIndex].n}`;        
     }
@@ -51,7 +50,6 @@ export default function txPage(props) {
     useEffect(() => {
         if (dataTxOut !== undefined) {
             setTxOut(dataTxOut);
-            // console.log(dataTxOut[size-1]);
             if (dataTxOut[size-1] === null) {
                 if (tx.vout[size-1]) { tx.vout[size-1].spent = true }
             } else {
@@ -92,8 +90,6 @@ export default function txPage(props) {
             <Loading />
         </Fragment>
         );
-
-    // console.log(tx);
     
     return(
         <Fragment>

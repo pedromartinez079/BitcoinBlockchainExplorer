@@ -3,8 +3,7 @@ import Link from 'next/link';
 export default function TxList(props) {
     const txIds = props.txids;
     const txs = props.txs;
-    // console.log(txList[1]);
-
+    
     if (txIds) {
         return(
             <div>

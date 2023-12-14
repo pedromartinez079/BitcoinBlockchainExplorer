@@ -1,6 +1,5 @@
 
 export default async function handler(req, res) {
-    // addresslist = address1|address2|address3|....
     const addresslist = req.query.addresslist;
 
     if (req.method === 'GET') {

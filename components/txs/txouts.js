@@ -2,9 +2,7 @@ import Link from "next/link";
 
 export default function TxOuts(props) {
     const txOuts = props.outputs;
-
-    // console.log('txOuts', txOuts);
-
+    
     return(
         <div className="card card-body">
             {txOuts.map((tx) => {

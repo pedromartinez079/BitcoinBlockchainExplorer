@@ -4,8 +4,6 @@ import Link from "next/link";
 export default function TxIns(props) {
     const txIns = props.inputs;
     
-    // console.log('txIns', props.inputs);
-
     return(
         <div className="card card-body">
             {txIns.map((tx) => {
@@ -24,7 +22,6 @@ export default function TxIns(props) {
                         {tx.coinbase && <p className="card-text m-0">Coinbase: {tx.coinbase}</p>}
                         {tx.txid && <p className="card-text m-0">Id: <Link href={'/txs/' + tx.txid}>{tx.txid}</Link></p>}
                         {tx.vout && <p className="card-text m-0">Index: {tx.vout}</p>}
-                        {/* tx.scriptSig && <p>Sender Address: <Link href={'/address/' + tx.scriptSig.address}>{tx.scriptSig.address}</Link></p> */}
                         {asm && <p className="card-text m-0">ScriptSig asm: {asm}</p>}
                         {hex && <p className="card-text m-0">ScriptSig hex: {hex}</p>}
                         {tx.txinwitness && <p className="card-text m-0">Witness:</p>}

@@ -19,7 +19,6 @@ export default function Search(props) {
     const [result, setResult] = useState([]);
 
     const getKey = (pageIndex, previousPageData) => {
-        // console.log(`/api/${whatToSearch[pageIndex]}/${slug}`);        
         if (pageIndex >= whatToSearch.length) { return null; }
         return `/api/${whatToSearch[pageIndex]}/${slug}`;
     }
@@ -32,7 +31,6 @@ export default function Search(props) {
     useEffect(() => {
         if (data !== undefined) {
             setResult(data);
-            // console.log(data);
             setSize(size + 1);
         }
     }, [data]);

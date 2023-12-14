@@ -15,9 +15,7 @@ export default function SearchResult(props) {
     if (isTx) { tx = props.result[0] }
     if (isBlock) { block = props.result[1] }
     if (isAddress) { address = props.result[2] }
-
-    // console.log({tx: isTx, block: isBlock, address: isAddress});
-
+    
     return(
         <div className="container text-center border">
             {isTx && <p className="card-text m-3">Tx: <Link href={`/txs/${tx.txid}`}>{tx.txid}</Link></p>}
