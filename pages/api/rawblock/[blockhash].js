@@ -22,7 +22,7 @@ export default async function handler(req, res) {
             }
         );
         const data = await response.json();
-         
+        if (data.result === undefined) { return res.status(200).json(null);}
         res.status(200).json(data.result);
         return;
     }
