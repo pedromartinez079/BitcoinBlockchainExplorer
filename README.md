@@ -22,3 +22,6 @@ An explorer for Bitcoin blockchain where transactions, blocks and addresses info
 
 [Repository](https://github.com/pedromartinez079/BitcoinBlockchainExplorer)
 
+## 📝 License
+
+This project is [GNU GPLv3](COPYING) licensed.
