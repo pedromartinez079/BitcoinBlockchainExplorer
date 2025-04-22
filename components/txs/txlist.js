@@ -9,8 +9,8 @@ export default function TxList(props) {
             <div>
                 {txIds.map((txid) => (
                     <div key={txid}>
-                        <Link href={'/txs/' + txid.hash}>
-                            {txid.hash}
+                        <Link href={'/txs/' + txid}>
+                            {txid}
                         </Link>
                     </div>
                 ))}            
