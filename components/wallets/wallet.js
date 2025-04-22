@@ -29,7 +29,7 @@ export default function Wallet(props) {
                         </button>
                       </div>                        
                       <div className="collapse m-2" id="collapseTxs">
-                        <TxList txids={props.wallet.txs}/>
+                        <TxList wallet_txs={props.wallet.txs}/>
                       </div>
                     </div>
                 }

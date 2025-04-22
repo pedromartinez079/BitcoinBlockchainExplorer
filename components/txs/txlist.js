@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 export default function TxList(props) {
     const txIds = props.txids;
+    const walletTxs = props.wallet_txs;
     const txs = props.txs;
     
     if (txIds) {
@@ -11,6 +12,20 @@ export default function TxList(props) {
                     <div key={txid}>
                         <Link href={'/txs/' + txid}>
                             {txid}
+                        </Link>
+                    </div>
+                ))}            
+            </div>
+        );
+    }
+
+    if (walletTxs) {
+        return(
+            <div>
+                {walletTxs.map((txid) => (
+                    <div key={txid.hash}>
+                        <Link href={'/txs/' + txid.hash}>
+                            {txid.hash}
                         </Link>
                     </div>
                 ))}            
