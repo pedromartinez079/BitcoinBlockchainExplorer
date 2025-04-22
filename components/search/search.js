@@ -7,8 +7,8 @@ import Wallet from "../wallets/wallet";
 export default function SearchResult(props) {
     const isTx = props.result[0] !== null;
     const isBlock = props.result[1] !== null;
-    // const isAddress = !props.result[2].hasOwnProperty("error");
-    const isAddress = props.result[2] !== null;
+    const isAddress = !props.result[2].hasOwnProperty("error");
+    
     let tx = { txid: '' };
     let block = { hash: '' };
     let address = { addresses: [{address: ''}] }
