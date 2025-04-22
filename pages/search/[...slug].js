@@ -14,7 +14,8 @@ import { getRandomQuote } from "../../lib/blockchain-util";
 export default function Search(props) {
     const router = useRouter();
     const slug = router.query.slug;
-    const whatToSearch = ['rawtx','rawblock','rawaddress'];
+    // const whatToSearch = ['rawtx','rawblock','rawaddress'];
+    const whatToSearch = ['rawtx','rawblock','multiaddress'];
 
     const [result, setResult] = useState([]);
 

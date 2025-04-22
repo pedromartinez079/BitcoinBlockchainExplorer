@@ -7,7 +7,8 @@ import Wallet from "../wallets/wallet";
 export default function SearchResult(props) {
     const isTx = props.result[0] !== null;
     const isBlock = props.result[1] !== null;
-    const isAddress = !props.result[2].hasOwnProperty("error");
+    // const isAddress = !props.result[2].hasOwnProperty("error");
+    const isAddress = props.result[2] !== null;
     let tx = { txid: '' };
     let block = { hash: '' };
     let address = { address: '' }
@@ -20,7 +21,7 @@ export default function SearchResult(props) {
         <div className="container text-center border">
             {isTx && <p className="card-text m-3">Tx: <Link href={`/txs/${tx.txid}`}>{tx.txid}</Link></p>}
             {isBlock && <p className="card-text m-3">Block: <Link href={`/blocks/${block.hash}`}>{block.hash}</Link></p>}
-            {isAddress && <p className="card-text m-3">Address: <Link href={`/address/${address.validateaddress.address}`}>{address.validateaddress.address}</Link></p>}
+            {isAddress && <p className="card-text m-3">Address: <Link href={`/address/${address.addresses[0].address}`}>{address.addresses[0].address}</Link></p>}
             {!isTx && !isBlock && !isAddress &&
                 <div className="d-flex justify-content-center m-3">
                     <span className="badge text-bg-warning fs-5">Nothing was found!</span>            
