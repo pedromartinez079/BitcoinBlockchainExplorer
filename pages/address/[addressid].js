@@ -15,7 +15,6 @@ export default function AddressPage(props) {
     const [address, setAddress] = useState({});
 
     const {data, error} = useSWR(
-        // `/api/rawaddress/${props.addressId}`,
         `/api/multiaddress/${props.addressId}`,
         (url) => fetch(url).then(res => res.json())
         );

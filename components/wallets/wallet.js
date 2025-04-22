@@ -3,8 +3,6 @@ import TxList from '../txs/txlist';
 import classes from './wallet.module.css';
 
 export default function Wallet(props) {
-    // const balance = ((props.wallet.txHistory.balanceSat === 0) && '0') || ((props.wallet.txHistory.balanceSat !== 0) && props.wallet.txHistory.balanceSat);
-    // const txs = ((props.wallet.txHistory.txCount === 0) && '0') || ((props.wallet.txHistory.txCount !== 0) && props.wallet.txHistory.txCount);
     const balance = ((props.wallet.wallet.final_balance === 0) && '0') || ((props.wallet.wallet.final_balance !== 0) && props.wallet.wallet.final_balance);
     const txs = ((props.wallet.wallet.n_tx === 0) && '0') || ((props.wallet.wallet.n_tx !== 0) && props.wallet.wallet.n_tx);
 
@@ -12,10 +10,6 @@ export default function Wallet(props) {
         <div className="card m-1 shadow">
             <div className="card-body">
                 {props.wallet.addresses[0].address && <h5 className="card-title">{props.wallet.addresses[0].address}</h5>}
-                {/*
-                {props.wallet.encoding && <h6 className="card-subtitle mb-2 text-body-secondary">Encoding: {props.wallet.encoding}</h6>}
-                {props.wallet.validateaddress.scriptPubKey && <p className="card-text m-0">ScriptPubKey: {props.wallet.validateaddress.scriptPubKey}</p>}
-                */}
                 {balance && <p className="card-text m-0">Balance(sats): {balance}</p>}
                 {txs && <p className="card-text m-0">Txs: {txs}</p>}
                 {props.wallet.wallet.n_tx &&
