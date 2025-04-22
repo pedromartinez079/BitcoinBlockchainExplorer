@@ -50,7 +50,7 @@ export default function AddressPage(props) {
         </Fragment>
         );
 
-    if (!data || data === undefined || !address.addresses[0].address) return (
+    if (!data || data === undefined || !address.addresses) return (
         <Fragment>
             {pageHead}
             <Loading />
