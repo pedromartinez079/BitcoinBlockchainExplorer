@@ -107,9 +107,12 @@ export default function txPage(props) {
 }
 
 export async function getServerSideProps(context) {
-    const quote = await getRandomQuote();
+    // const quote = await getRandomQuote();
     const {params} = context;
     const txId = params.txid;
+    const quote = {text:"Every informed person needs to know about Bitcoin because it might be one of the world’s most important developments.",
+        speaker:"Leon Luow, Nobel Peace Prize nominee", url:""
+      };
     
     return{
         props: { txId: txId, quote: quote }, 

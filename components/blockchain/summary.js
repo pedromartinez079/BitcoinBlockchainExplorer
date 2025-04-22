@@ -1,6 +1,6 @@
 import Card from "./card";
 
-import { formatBytes, nFormatter } from "../../lib/formatNumbers";
+import { formatBytes, nFormatter, diffYMD } from "../../lib/formatNumbers";
 
 export default function Summary(props) {
     const mempoolUsage = formatBytes(props.networkStatus.mempool.usage);
@@ -8,6 +8,8 @@ export default function Summary(props) {
     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
                         hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
     const nextHalvingDate = new Date(props.networkStatus.nexthalving.nextHalvingEstimatedDate);
+    const today = new Date();
+    let remainingTimeNextHalving = diffYMD(today, nextHalvingDate);
         
     return(
         <div className="container text-center m-3 p-3 border">
@@ -83,10 +85,11 @@ export default function Summary(props) {
                         {
                             title: 'Estimated Fees',
                             subtitle: 'Tx fee to get a confirmation within...',
-                            text: ("Immediate: " + props.networkStatus.estimatefees.nextBlock + " sat/vB"
-                                    + "\n30 minutes: " + props.networkStatus.estimatefees['30min'] + " sat/vB"
-                                    + "\n1 hour: " + props.networkStatus.estimatefees['60min'] + " sat/vB"
-                                    + "\n1 day: " + props.networkStatus.estimatefees['1day']) + " sat/vB",
+                            text: ("Immediate: " + props.networkStatus.estimatefees.fastestFee + " sat/vB"
+                                    + "\n30 minutes: " + props.networkStatus.estimatefees.halfHourFee + " sat/vB"
+                                    + "\n1 hour: " + props.networkStatus.estimatefees.hourFee + " sat/vB"
+                                    + "\neconomy: " + props.networkStatus.estimatefees.economyFee + " sat/vB"
+                                    + "\nminimum: " + props.networkStatus.estimatefees.minimumFee) + " sat/vB",
                             link1: null, link1txt: null, 
                             link2: null, link2txt: null,
                             tip: 'sat/vB: satoshis/virtual Bytes',
@@ -100,7 +103,7 @@ export default function Summary(props) {
                             subtitle: null,
                             text: ("Block Height: " + props.networkStatus.nexthalving.nextHalvingBlock
                                     + "\nReward/block: " + props.networkStatus.nexthalving.nextHalvingSubsidy
-                                    + "\nRemaining Time: " + props.networkStatus.nexthalving.timeUntilNextHalving
+                                    + "\nRemaining Time: " + remainingTimeNextHalving
                                     + "\nETA: " + nextHalvingDate.toLocaleString("en-US", options)),
                             link1: null, link1txt: null,
                             link2: null, link2txt: null,
