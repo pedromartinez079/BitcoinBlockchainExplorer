@@ -6,7 +6,6 @@ export default function Wallet(props) {
     // const balance = ((props.wallet.txHistory.balanceSat === 0) && '0') || ((props.wallet.txHistory.balanceSat !== 0) && props.wallet.txHistory.balanceSat);
     // const txs = ((props.wallet.txHistory.txCount === 0) && '0') || ((props.wallet.txHistory.txCount !== 0) && props.wallet.txHistory.txCount);
     const balance = ((props.wallet.wallet.final_balance === 0) && '0') || ((props.wallet.wallet.final_balance !== 0) && props.wallet.wallet.final_balance);
-    const usd_balance = ((props.wallet.info.symbol_local.conversion === 0) && '0') || ((props.wallet.info.symbol_local.conversion !== 0) && props.wallet.info.symbol_local.conversion);
     const txs = ((props.wallet.wallet.n_tx === 0) && '0') || ((props.wallet.wallet.n_tx !== 0) && props.wallet.wallet.n_tx);
 
     return(
@@ -18,7 +17,6 @@ export default function Wallet(props) {
                 {props.wallet.validateaddress.scriptPubKey && <p className="card-text m-0">ScriptPubKey: {props.wallet.validateaddress.scriptPubKey}</p>}
                 */}
                 {balance && <p className="card-text m-0">Balance(sats): {balance}</p>}
-                {usd_balance && <p className="card-text m-0">Balance(USD): {usd_balance}</p>}
                 {txs && <p className="card-text m-0">Txs: {txs}</p>}
                 {props.wallet.wallet.n_tx &&
                     <div className='container m-2'>
