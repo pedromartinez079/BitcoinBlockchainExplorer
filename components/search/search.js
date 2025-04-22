@@ -11,7 +11,7 @@ export default function SearchResult(props) {
     const isAddress = props.result[2] !== null;
     let tx = { txid: '' };
     let block = { hash: '' };
-    let address = { address: '' }
+    let address = { addresses: [{address: ''}] }
 
     if (isTx) { tx = props.result[0] }
     if (isBlock) { block = props.result[1] }
